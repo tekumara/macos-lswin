@@ -20,8 +20,8 @@ will be installed in the `.tox` Python virtual environment binary path.
 List all windows with process names or window names beginning with "term":
 
     $ lswin -a -f "term*"
-       PID     WID  Process: Window                                  X      Y
-    ------  ------  -------------------------------------------  -----  -----
+       PID     WID  Process: Window                                  X      Y   Is Menu Bar Item
+    ------  ------  -------------------------------------------  -----  -----  -----------------
       4953    4805  Terminal: <4805>                                 0      0
       4953    4806  Terminal: <4806>                                 0      0
       4953    4813  Terminal: Focus Proxy                          100    100
@@ -38,7 +38,7 @@ List all windows with process names or window names beginning with "term":
 List onscreen windows with process names or window names beginning with "term":
 
     $ lswin -f "term*"
-       PID     WID  Process: Window                                  X      Y
-    ------  ------  -------------------------------------------  -----  -----
+       PID     WID  Process: Window                                  X      Y   Is Menu Bar Item
+    ------  ------  -------------------------------------------  -----  -----  -----------------
       4953   14588  Terminal: Terminal — -bash — 129×25            173    496
       4953   14890  Terminal: Terminal — lswin.py -f term* —...    395    201

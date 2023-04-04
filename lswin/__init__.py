@@ -7,7 +7,7 @@ from typing import Iterable
 
 from ._macos_window import Window
 
-__version__ = '0.2'
+__version__ = '0.3'
 
 
 def get_windows(name_filter: str = '', include_off_screen: bool = False) -> Iterable[Window]:
@@ -29,14 +29,14 @@ def get_windows(name_filter: str = '', include_off_screen: bool = False) -> Iter
 def print_window_table(windows: Iterable[Window], out_file=sys.stdout):
     '''Print a fixed-width table of window objects'''
     if windows:
-        message = '{0:>6}  {1:>6}  {2:43}  {3:>5}  {4:>5}'
-        print(message.format('PID', 'WID', 'Process: Window', 'X', 'Y'), file=out_file)
-        print('-'*6, '-'*6, '-'*43, '-'*5, '-'*5, sep='  ', file=out_file)
+        message = '{0:>6}  {1:>6}  {2:43}  {3:>5}  {4:>5}  {5:>17}'
+        print(message.format('PID', 'WID', 'Process: Window', 'X', 'Y', 'Is Menu Bar Item'), file=out_file)
+        print('-'*6, '-'*6, '-'*43, '-'*5, '-'*5, '-'*17, sep='  ', file=out_file)
         for window in windows:
             name = str(window)
             if len(name) > 43:
                 name = name[:40] + '...'
-            print(message.format(window.owner_pid, window.number, name, window.x, window.y), file=out_file)
+            print(message.format(window.owner_pid, window.number, name, window.x, window.y, "Yes" if window.is_menu_bar_item else ""), file=out_file)
 
 
 def main():

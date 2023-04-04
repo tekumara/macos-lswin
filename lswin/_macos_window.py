@@ -10,6 +10,7 @@ class Window:
         self.name = window.get('kCGWindowName')
         self.owner_pid = window.get('kCGWindowOwnerPID')
         self.owner_name = window.get('kCGWindowOwnerName')
+        self.is_menu_bar_item = window.get('kCGWindowLayer') == 25
 
         bounds = window.get('kCGWindowBounds', {})
         self.x = int(bounds.get('X', 0))
